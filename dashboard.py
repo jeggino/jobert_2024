@@ -55,7 +55,7 @@ st.dataframe(data=db_content_observations, width=None, height=None, use_containe
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 
 
-ICON_URL = "https://th.bing.com/th/id/OIP.Ae6DJZ_yCBGW9pEDO3u25AHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1,5"
+ICON_URL = "https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
