@@ -62,15 +62,15 @@ icon_data = {
     # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
     "url": ICON_URL,
     "width": 242,
-    # "height": 242,
-    "anchorY": 0,
+    "height": 242,
+    "anchorY": 242,
 }
 
-data =db_content_observations
+data = db_content_observations
 data["icon_data"] = None
 for i in data.index:
     data["icon_data"][i] = icon_data
-
+    
 view = pdk.data_utils.compute_view(data[["lng", "lat"]])
 
 icon_layer = pdk.Layer(
