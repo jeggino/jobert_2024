@@ -55,7 +55,7 @@ st.dataframe(data=db_content_observations, width=None, height=None, use_containe
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 
 
-ICON_URL = "https://cdn-icons-png.flaticon.com/512/12/12453.png"
+ICON_URL = "https://static.vecteezy.com/system/resources/previews/000/546/738/original/bat-vector-icon.jpg"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
