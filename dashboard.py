@@ -73,7 +73,7 @@ data["icon_data"] = None
 for i in data.index:
     data["icon_data"][i] = icon_data
 
-# view_state = pdk.data_utils.compute_view(data[["lng", "lat"]], 0.1)
+view = pdk.data_utils.compute_view(df[["lng", "lat"]])
 
 icon_layer = pdk.Layer(
     type="IconLayer",
@@ -85,5 +85,11 @@ icon_layer = pdk.Layer(
     pickable=True,
 )
 
-r = pdk.Deck(layers=[icon_layer], tooltip={"text": "{sp}"})
+r = pdk.Deck(
+    icon_layer,
+    initial_view_state=view,
+    tooltip={"text": "{sp}"},
+    map_provider="mapbox",
+    map_style=pdk.map_styles.SATELLITE,
+)
 st.pydeck_chart(r,use_container_width=True)
