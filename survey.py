@@ -40,6 +40,14 @@ locatie = st.selectbox('LOCATIE',LOCATIE,key='LOCATIE',placeholder="Kies een loc
 weersomstandigheden = st.selectbox('Weersomstandigheden',Weersomstandigheden,key='Weersomstandigheden',placeholder="Vul de weeromstandigheden in...",index=None)
 temp = st.number_input("Temperatuur", value=None, placeholder="Voer de temperatuur in...")
 rapport = st.text_input("Voeg een dagrapport toe", "")
+"---"
+st.write(datum)
+st.write(t_1)
+st.write(t_2)
+st.write(locatie)
+st.write(weersomstandigheden)
+st.write(temp)
+st.write(rapport)
 
 submitted = st.button("Gegevens invoegen")
 
