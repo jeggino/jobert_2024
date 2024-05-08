@@ -61,9 +61,9 @@ icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
     # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
     "url": ICON_URL,
-    "width": 242,
-    "height": 242,
-    "anchorY": 0,
+    "width": 120,
+    "height": 120,
+    "anchorY": 242,
 }
 
 data = db_content_observations
