@@ -55,7 +55,7 @@ st.dataframe(data=db_content_observations, width=None, height=None, use_containe
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 
 
-ICON_URL = "https://static.vecteezy.com/system/resources/previews/000/546/738/original/bat-vector-icon.jpg"
+ICON_URL = "https://github.com/jeggino/GiggiGIS/blob/db899abeb6c0de3921c009c6e5f82f1d6c9a81d8/icons/WhatsApp%20Image%202024-03-06%20at%2008.32.45_8959982f.jpg"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
