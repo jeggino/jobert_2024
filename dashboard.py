@@ -37,7 +37,7 @@ st.markdown(
 
 
 # --- CONNECT TO DETA ---
-deta = Deta(st.secrets["deta_key_dashboard"])
+deta = Deta(st.secrets["deta_key"])
 db = deta.Base("df_observations")
 drive = deta.Drive("df_pictures")
 
