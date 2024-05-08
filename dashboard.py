@@ -73,7 +73,7 @@ data["icon_data"] = None
 for i in data.index:
     data["icon_data"][i] = icon_data
 
-view = pdk.data_utils.compute_view(df[["lng", "lat"]])
+view = pdk.data_utils.compute_view(data[["lng", "lat"]])
 
 icon_layer = pdk.Layer(
     type="IconLayer",
