@@ -64,8 +64,8 @@ icon_data = {
     # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
     "url": ICON_URL,
     "width": 242,
-    "height": 242,
-    "anchorY": 242,
+    # "height": 242,
+    "anchorY": 0,
 }
 
 data =db_content_observations
