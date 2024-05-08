@@ -38,19 +38,22 @@ st.markdown(
 
 # --- CONNECT TO DETA ---
 deta = Deta(st.secrets["deta_key"])
-db = deta.Base("df_observations")
+db_observations = deta.Base("df_observations")
+db_survey = deta.Base("db_survey")
 drive = deta.Drive("df_pictures")
 
 # --- FUNCTIONS ---
 
 def load_dataset():
-    return db.fetch().items
+    return db_observations.fetch().items, db_survey.fetch().items
 
 
-db_content = pd.DataFrame(load_dataset())
+db_content_observations = pd.DataFrame(load_dataset()[0])
+db_content_surveys = pd.DataFrame(load_dataset()[1])
 
 project = st.selectbox("Project", ["Zaandam","Badhoevedorp"],key="project")
-db_content = db_content[db_content["project"]==project]
+db_content_observations = db_content_observations[db_content_observations["project"]==project]
 
 
-st.dataframe(data=db_content, width=None, height=None, use_container_width=False, hide_index=True, column_order=None, column_config=None)
+st.dataframe(data=db_content_observations, width=None, height=None, use_container_width=False, hide_index=True, column_order=None, column_config=None)
+st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=False, hide_index=True, column_order=None, column_config=None)
