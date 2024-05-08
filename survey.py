@@ -27,9 +27,9 @@ Weersomstandigheden = ['Zonnig', 'Bewolkt', 'Lichte regen']
 def load_dataset():
   return db.fetch().items
 
-def insert_input(datum,t_1,t_2,locatie,temp,Weersomstandigheden,rapport):
+def insert_input(datum,t_1,t_2,locatie,temp,weersomstandigheden,rapport):
 
-  return db.put({"datum":str(datum),"t_1":t_1,"t_2":t_2,"Locatie":locatie,"temp":temp,"Weersomstandigheden":Weersomstandigheden,"rapport":rapport})
+  return db.put({"datum":str(datum),"t_1":t_1,"t_2":t_2,"Locatie":locatie,"temp":temp,"Weersomstandigheden":weersomstandigheden,"rapport":rapport})
 
         
 # --- APP ---
