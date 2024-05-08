@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from deta import Deta
+import pydeck as pdk
 
 
 # --- CONFIGURATION LAYOUT ---
