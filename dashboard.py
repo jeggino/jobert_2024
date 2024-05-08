@@ -55,18 +55,25 @@ st.dataframe(data=db_content_observations, width=None, height=None, use_containe
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 
 
-ICON_URL = "https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png"
+ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
+            "forageren": "https://th.bing.com/th/id/OIP.xXDvwPQPQcgfpPEIkk2KEQHaHa?rs=1&pid=ImgDetMain",
+            "Zwermen": "https://th.bing.com/th/id/R.f265b1bfdcf77d2cd550882c15bf7977?rik=RZGpl03FYAwWJQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2017%2f05%2fMap-Marker-PNG-Picture.png&ehk=wBDODeX2dBoxrTGgrpwu4xXzVNnUycDEZEY4PR1dy9k%3d&risl=&pid=ImgRaw&r=0",}
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
     # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
-    "url": ICON_URL,
-    "width": 120,
-    "height": 120,
-    "anchorY": 125,
+    "url": ICON_URL["Zwermen"],
+    # "width": 120,
+    # "height": 120,
+    # "anchorY": 125,
 }
 
 data = db_content_observations
+# data["icon_data"] = data.apply(lambda x: ICON[x["sp"]] if ((x["soortgroup"]=="Vogels") & (x["functie"]!="nestlocatie")) 
+#                                        else (ICON["Swift_nest"] if ((x["soortgroup"]=="Vogels") & (x["functie"]=="nestlocatie"))
+#                                               else (ICON["Bat"] if x["soortgroup"]=="Vleermuizen"  
+#                                                  else (ICON["Nest_bezet"] if x["onbewoond"]=="Ja" 
+#                                                        else ICON["Nest_unbezet"]))), axis=1)
 data["icon_data"] = None
 for i in data.index:
     data["icon_data"][i] = icon_data
