@@ -57,7 +57,7 @@ st.dataframe(data=db_content_observations, width=None, height=None, use_containe
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=False, hide_index=True, column_order=None, column_config=None)
 
 
-ICON_URL = "https://github.com/jeggino/GiggiGIS/blob/main/icons/WhatsApp%20Image%202024-03-06%20at%2008.32.45_8959982f.jpg"
+ICON_URL = "https://th.bing.com/th/id/OIP.q_XamkOyhc3C4oNtPExhMAAAAA?pid=ImgDet&w=178&h=191&c=7&dpr=1,5"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
