@@ -48,7 +48,7 @@ db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 
 project = st.selectbox("Project", ["Zaandam","Badhoevedorp"],key="project")
 db_content_observations = db_content_observations[db_content_observations["project"]==project]
-db_content_surveys = db_content_surveys[db_content_surveys["locatie"]==project]
+db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
 
 
 
