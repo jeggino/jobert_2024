@@ -43,7 +43,6 @@ db_observations = deta.Base("df_observations")
 db_survey = deta.Base("df_survey")
 drive = deta.Drive("df_pictures")
 
-# --- FUNCTIONS ---
 db_content_observations = pd.DataFrame(db_observations.fetch().items)
 db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 
@@ -52,9 +51,8 @@ db_content_observations = db_content_observations[db_content_observations["proje
 db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
 
 
-
-st.dataframe(data=db_content_observations, width=None, height=None, use_container_width=False, hide_index=True, column_order=None, column_config=None)
-st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=False, hide_index=True, column_order=None, column_config=None)
+st.dataframe(data=db_content_observations, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
+st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 
 
 ICON_URL = "https://upload.wikimedia.org/wikipedia/commons/c/c4/Projet_bi%C3%A8re_logo_v2.png"
