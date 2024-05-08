@@ -62,7 +62,7 @@ ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navi
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
     # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
-    "url": ICON_URL["forageren"],
+    "url": ICON_URL["Zwermen"],
     # "width": 120,
     # "height": 120,
     # "anchorY": 125,
