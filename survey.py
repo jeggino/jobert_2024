@@ -37,17 +37,17 @@ datum = st.date_input("Datum", datetime.datetime.today())
 t_1 = st.time_input("begintijd invoegen", value=None,key="t_1")
 t_2 = st.time_input("eindtijd invoegen", value=None,key="t_2")
 locatie = st.selectbox('LOCATIE',LOCATIE,key='LOCATIE',placeholder="Kies een locatie...",index=None)
-Weersomstandigheden = st.selectbox('Weersomstandigheden',Weersomstandigheden,key='Weersomstandigheden',placeholder="Vul de weeromstandigheden in...",index=None)
-temp = number = st.number_input("Temperatuur", value=None, placeholder="Voer de temperatuur in...")
+weersomstandigheden = st.selectbox('Weersomstandigheden',Weersomstandigheden,key='Weersomstandigheden',placeholder="Vul de weeromstandigheden in...",index=None)
+temp = st.number_input("Temperatuur", value=None, placeholder="Voer de temperatuur in...")
 rapport = st.text_input("Voeg een dagrapport toe", "")
 
 submitted = st.button("Gegevens invoegen")
 
 if submitted:
 
-    if len(waarnemer) == 0 or gebied==None or doel==None:
+    if len(locatie) == 0 or t_1==None or t_2==None or temp==None:
         st.warning("Vul het formulier in, alstublieft")
         st.stop()
 
-    insert_input(datum,t_1,t_2,Locatie,temp,Weersomstandigheden,rapport)
+    insert_input(datum,t_1,t_2,Locatie,temp,weersomstandigheden,rapport)
     st.write(f"Done!")
