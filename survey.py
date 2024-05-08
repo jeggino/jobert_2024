@@ -34,7 +34,7 @@ def load_dataset():
 
 def insert_input(datum,t_1,t_2,Locatie,temp,Weersomstandigheden,rapport):
 
-  return db.put({"datum":str(datum),"t_1":t_1,"t_2":t_2",Locatie":Locatie,"temp":temp,"Weersomstandigheden":Weersomstandigheden,"rapport":rapport})
+  return db.put({"datum":str(datum),"t_1":t_1,"t_2":t_2,"Locatie":Locatie,"temp":temp,"Weersomstandigheden":Weersomstandigheden,"rapport":rapport})
 
         
 # --- APP ---
