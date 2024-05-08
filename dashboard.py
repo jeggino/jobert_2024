@@ -57,7 +57,7 @@ st.dataframe(data=db_content_observations, width=None, height=None, use_containe
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=False, hide_index=True, column_order=None, column_config=None)
 
 
-ICON_URL = "https://th.bing.com/th/id/R.77004bb26cc40d7dbef4f0fbf092a56c?rik=zFEcnbQu9%2fTi3g&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fbat-clipart-transparent%2fbat-clipart-transparent-17.png&ehk=qrFtPn2UAYdwO0aY5vQ10OPX4F2iT25nvYgr6j5IkUw%3d&risl=&pid=ImgRaw&r=0"
+ICON_URL = "icons/WhatsApp Image 2024-03-06 at 08.32.45_8959982f.jpg"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
