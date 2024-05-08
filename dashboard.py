@@ -55,7 +55,7 @@ st.dataframe(data=db_content_observations, width=None, height=None, use_containe
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 
 
-ICON_URL = "https://github.com/jeggino/GiggiGIS/blob/db899abeb6c0de3921c009c6e5f82f1d6c9a81d8/icons/WhatsApp%20Image%202024-03-06%20at%2008.32.45_8959982f.jpg"
+ICON_URL = "https://th.bing.com/th/id/R.3cff479ce26f300f34de2a7341e6a8cb?rik=DkyBXf5OqRpSKA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2017%2f05%2fMap-Marker.png&ehk=VzUixa53KBy7kv9xX%2fDjcNbw5wAffw54s0jmsVj3awk%3d&risl=&pid=ImgRaw&r=0"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
