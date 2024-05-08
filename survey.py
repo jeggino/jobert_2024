@@ -27,9 +27,9 @@ Weersomstandigheden = ['Zonnig', 'Bewolkt', 'Lichte regen']
 def load_dataset():
   return db.fetch().items
 
-def insert_input(datum,t_1,t_2,Locatie,temp,Weersomstandigheden,rapport):
+def insert_input(datum,t_1,t_2,locatie,temp,Weersomstandigheden,rapport):
 
-  return db.put({"datum":str(datum),"t_1":t_1,"t_2":t_2,"Locatie":Locatie,"temp":temp,"Weersomstandigheden":Weersomstandigheden,"rapport":rapport})
+  return db.put({"datum":str(datum),"t_1":t_1,"t_2":t_2,"Locatie":locatie,"temp":temp,"Weersomstandigheden":Weersomstandigheden,"rapport":rapport})
 
         
 # --- APP ---
@@ -49,5 +49,5 @@ if submitted:
         st.warning("Vul het formulier in, alstublieft")
         st.stop()
 
-    insert_input(datum,t_1,t_2,Locatie,temp,weersomstandigheden,rapport)
+    insert_input(datum,t_1,t_2,locatie,temp,weersomstandigheden,rapport)
     st.write(f"Done!")
