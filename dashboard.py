@@ -43,13 +43,8 @@ db_survey = deta.Base("db_survey")
 drive = deta.Drive("df_pictures")
 
 # --- FUNCTIONS ---
-
-def load_dataset():
-    return db_observations.fetch().items, db_survey.fetch().items
-
-
-db_content_observations = pd.DataFrame(load_dataset()[0])
-db_content_surveys = pd.DataFrame(load_dataset()[1])
+db_content_observations = pd.DataFrame(db_observations.fetch().items)
+db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 
 project = st.selectbox("Project", ["Zaandam","Badhoevedorp"],key="project")
 db_content_observations = db_content_observations[db_content_observations["project"]==project]
