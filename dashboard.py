@@ -62,10 +62,10 @@ ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navi
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
     # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
-    "url": ICON_URL["verblijplaatz"],
-    # "width": 120,
-    # "height": 120,
-    # "anchorY": 125,
+    "url": ICON_URL["Zwermen"],
+    "width": 120,
+    "height": 120,
+    "anchorY": 125,
 }
 
 data = db_content_observations
@@ -84,7 +84,7 @@ icon_layer = pdk.Layer(
     type="IconLayer",
     data=data,
     get_icon="icon_data",
-    get_size=4,
+    get_size=2,
     size_scale=15,
     get_position=["lng", "lat"],
     pickable=True,
