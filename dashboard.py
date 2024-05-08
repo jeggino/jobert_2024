@@ -63,7 +63,7 @@ icon_data = {
     "url": ICON_URL,
     "width": 120,
     "height": 120,
-    "anchorY": 0,
+    "anchorY": 250,
 }
 
 data = db_content_observations
