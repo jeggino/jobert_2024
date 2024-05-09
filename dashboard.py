@@ -52,7 +52,7 @@ db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
 
 
 # st.dataframe(data=db_content_observations, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
-st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2"], column_config=None)
+st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2","Weersomstandigheden","rapport"], column_config=None)
 
 
 ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
