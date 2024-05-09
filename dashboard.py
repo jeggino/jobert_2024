@@ -94,7 +94,7 @@ with tab2:
     st.pydeck_chart(r,use_container_width=True)
 
 with tab3:
-    submitted = popover.button("Gegevens opslaan")
+    submitted = st.button("Gegevens opslaan")
     if submitted:
         title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
         bytes_data = uploaded_file.getvalue()
