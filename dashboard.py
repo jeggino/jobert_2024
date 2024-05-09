@@ -52,7 +52,7 @@ db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
 
 
 # st.dataframe(data=db_content_observations, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
-st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
+st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2"], column_config=None)
 
 
 ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
@@ -60,8 +60,6 @@ ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navi
             "Zwermen": "https://th.bing.com/th/id/R.fa1d67352a0b44b7a2ac3c07809b2777?rik=i%2bEbns2Dii9E0A&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_412341.png&ehk=z3kw3bKlhHt92TZ8t6XG6ufo6UoGTKO%2bBFTZC0cM1Cg%3d&risl=&pid=ImgRaw&r=0",}
 
 icon_data = {
-    # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
-    # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
     "url": ICON_URL["Zwermen"],
     "width": 250,
     "height": 250,
@@ -69,11 +67,6 @@ icon_data = {
 }
 
 data = db_content_observations
-# data["icon_data"] = data.apply(lambda x: ICON[x["sp"]] if ((x["soortgroup"]=="Vogels") & (x["functie"]!="nestlocatie")) 
-#                                        else (ICON["Swift_nest"] if ((x["soortgroup"]=="Vogels") & (x["functie"]=="nestlocatie"))
-#                                               else (ICON["Bat"] if x["soortgroup"]=="Vleermuizen"  
-#                                                  else (ICON["Nest_bezet"] if x["onbewoond"]=="Ja" 
-#                                                        else ICON["Nest_unbezet"]))), axis=1)
 data["icon_data"] = None
 for i in data.index:
     data["icon_data"][i] = icon_data
