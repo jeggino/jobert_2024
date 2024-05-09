@@ -90,4 +90,5 @@ r = pdk.Deck(
     map_provider="mapbox",
     map_style=pdk.map_styles.SATELLITE,
 )
+
 tab2.pydeck_chart(r,use_container_width=True)
