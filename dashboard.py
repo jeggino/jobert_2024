@@ -92,3 +92,13 @@ with tab2:
     )
     
     st.pydeck_chart(r,use_container_width=True)
+
+with tab3:
+    if uploaded_file is not None:
+        title = st.text_input("",placeholder="een bestand uploaden...")
+        bytes_data = uploaded_file.getvalue()
+        drive.put(f"{title}.jpeg", data=bytes_data)
+
+    res = drive.get(name).read()
+    with st.expander("Zie foto"):
+        st.image(res)
