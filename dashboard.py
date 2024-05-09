@@ -51,7 +51,7 @@ db_content_observations = db_content_observations[db_content_observations["proje
 db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
 
 
-st.dataframe(data=db_content_observations, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
+# st.dataframe(data=db_content_observations, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 st.dataframe(data=db_content_surveys, width=None, height=None, use_container_width=True, hide_index=True, column_order=None, column_config=None)
 
 
@@ -63,8 +63,8 @@ icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
     # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
     "url": ICON_URL["Zwermen"],
-    "width": 120,
-    "height": 120,
+    "width": 250,
+    "height": 250,
     "anchorY": 125,
 }
 
