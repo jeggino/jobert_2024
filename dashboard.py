@@ -54,41 +54,41 @@ tab1, tab2, tab3 = st.tabs(["🗒️ Werkblad", "🗺️ Kaart", "📷 media"])
 
 tab1.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2","Weersomstandigheden","rapport"], column_config=None)
 
-
-ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
-            "forageren": "https://th.bing.com/th/id/OIP.xXDvwPQPQcgfpPEIkk2KEQHaHa?rs=1&pid=ImgDetMain",
-            "Zwermen": "https://th.bing.com/th/id/R.fa1d67352a0b44b7a2ac3c07809b2777?rik=i%2bEbns2Dii9E0A&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_412341.png&ehk=z3kw3bKlhHt92TZ8t6XG6ufo6UoGTKO%2bBFTZC0cM1Cg%3d&risl=&pid=ImgRaw&r=0",}
-
-icon_data = {
-    "url": ICON_URL["Zwermen"],
-    "width": 250,
-    "height": 250,
-    "anchorY": 125,
-}
-
-data = db_content_observations
-data["icon_data"] = None
-for i in data.index:
-    data["icon_data"][i] = icon_data
+with tab2:
+    ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
+                "forageren": "https://th.bing.com/th/id/OIP.xXDvwPQPQcgfpPEIkk2KEQHaHa?rs=1&pid=ImgDetMain",
+                "Zwermen": "https://th.bing.com/th/id/R.fa1d67352a0b44b7a2ac3c07809b2777?rik=i%2bEbns2Dii9E0A&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_412341.png&ehk=z3kw3bKlhHt92TZ8t6XG6ufo6UoGTKO%2bBFTZC0cM1Cg%3d&risl=&pid=ImgRaw&r=0",}
     
-view = pdk.data_utils.compute_view(data[["lng", "lat"]])
-
-icon_layer = pdk.Layer(
-    type="IconLayer",
-    data=data,
-    get_icon="icon_data",
-    get_size=2,
-    size_scale=15,
-    get_position=["lng", "lat"],
-    pickable=True,
-)
-
-r = pdk.Deck(
-    icon_layer,
-    initial_view_state=view,
-    tooltip={"text": "{sp}"},
-    map_provider="mapbox",
-    map_style=pdk.map_styles.SATELLITE,
-)
-
-tab2.pydeck_chart(r,use_container_width=True)
+    icon_data = {
+        "url": ICON_URL["Zwermen"],
+        "width": 250,
+        "height": 250,
+        "anchorY": 125,
+    }
+    
+    data = db_content_observations
+    data["icon_data"] = None
+    for i in data.index:
+        data["icon_data"][i] = icon_data
+        
+    view = pdk.data_utils.compute_view(data[["lng", "lat"]])
+    
+    icon_layer = pdk.Layer(
+        type="IconLayer",
+        data=data,
+        get_icon="icon_data",
+        get_size=2,
+        size_scale=15,
+        get_position=["lng", "lat"],
+        pickable=True,
+    )
+    
+    r = pdk.Deck(
+        icon_layer,
+        initial_view_state=view,
+        tooltip={"text": "{sp}"},
+        map_provider="mapbox",
+        map_style=pdk.map_styles.SATELLITE,
+    )
+    
+    st.pydeck_chart(r,use_container_width=True)
