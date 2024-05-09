@@ -94,11 +94,15 @@ with tab2:
     st.pydeck_chart(r,use_container_width=True)
 
 with tab3:
-    if uploaded_file is not None:
-        title = st.text_input("",placeholder="een bestand uploaden...")
-        bytes_data = uploaded_file.getvalue()
-        drive.put(f"{title}.jpeg", data=bytes_data)
+    submitted = popover.button("Gegevens opslaan")
+        if submitted:
+            title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
+            bytes_data = uploaded_file.getvalue()
+            drive.put(f"{title}.jpeg", data=bytes_data)
+            
+    name = st.text_input("",placeholder="een name...",key="name")
 
-    res = drive.get(name).read()
-    with st.expander("Zie foto"):
-        st.image(res)
+    if name:
+        res = drive.get(name).read()
+        with st.expander("Zie foto"):
+            st.image(res)
