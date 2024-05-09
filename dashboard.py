@@ -95,13 +95,12 @@ with tab2:
 
 with tab3:
     submitted = popover.button("Gegevens opslaan")
-        if submitted:
-            title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
-            bytes_data = uploaded_file.getvalue()
-            drive.put(f"{title}.jpeg", data=bytes_data)
+    if submitted:
+        title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
+        bytes_data = uploaded_file.getvalue()
+        drive.put(f"{title}.jpeg", data=bytes_data)
             
     name = st.text_input("",placeholder="een name...",key="name")
-
     if name:
         res = drive.get(name).read()
         with st.expander("Zie foto"):
