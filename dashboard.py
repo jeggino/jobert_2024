@@ -57,7 +57,7 @@ st.dataframe(data=db_content_surveys, width=None, height=None, use_container_wid
 
 ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
             "forageren": "https://th.bing.com/th/id/OIP.xXDvwPQPQcgfpPEIkk2KEQHaHa?rs=1&pid=ImgDetMain",
-            "Zwermen": "https://th.bing.com/th/id/R.f265b1bfdcf77d2cd550882c15bf7977?rik=RZGpl03FYAwWJQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2017%2f05%2fMap-Marker-PNG-Picture.png&ehk=wBDODeX2dBoxrTGgrpwu4xXzVNnUycDEZEY4PR1dy9k%3d&risl=&pid=ImgRaw&r=0",}
+            "Zwermen": "https://th.bing.com/th/id/R.fa1d67352a0b44b7a2ac3c07809b2777?rik=i%2bEbns2Dii9E0A&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_412341.png&ehk=z3kw3bKlhHt92TZ8t6XG6ufo6UoGTKO%2bBFTZC0cM1Cg%3d&risl=&pid=ImgRaw&r=0",}
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
