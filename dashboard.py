@@ -94,14 +94,19 @@ with tab2:
     st.pydeck_chart(r,use_container_width=True)
 
 with tab3:
+    uploaded_file = st.file_uploader("Choose a file")
+    st.image(uploaded_file, caption='Sunrise by the mountains')
+    
     submitted = st.button("Gegevens opslaan")
     if submitted:
-
-        
-        uploaded_file = st.file_uploader("Choose a file")
         title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
         bytes_data = uploaded_file.getvalue()
         drive.put(f"{title}.jpeg", data=bytes_data)
+
+        
+        
+        
+       
             
     name = st.text_input("",placeholder="een name...",key="name")
     if name:
