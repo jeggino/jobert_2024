@@ -108,7 +108,10 @@ with tab3:
 
     "---"    
     name = st.text_input("",placeholder="een name...",key="name")
-    if name:
-        res = drive.get(name).read()
-        with st.expander("Zie foto"):
-            st.image(res)
+    try:
+        if name:
+            res = drive.get(name).read()
+            with st.expander("Zie foto"):
+                st.image(res)
+    except:
+        st.warning("No media")
