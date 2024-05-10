@@ -139,4 +139,8 @@ if "vote" not in st.session_state:
 
 else:
     f"You writed {st.session_state.vote['reason']}, and selected {st.session_state.vote['option']}"
+    if st.button("select"):
+        # Delete all the items in Session state
+        for key in st.session_state.keys():
+            del st.session_state[key]
 
