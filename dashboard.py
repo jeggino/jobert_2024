@@ -142,5 +142,5 @@ else:
     if st.button("select"):
         # Delete all the items in Session state
         for key in st.session_state.vote.keys():
-            del st.session_state[key]
+            del st.session_state.vote[key]
 
