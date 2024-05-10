@@ -130,6 +130,7 @@ def vote():
         st.session_state.vote = {"genre": genre, "reason": reason}
         st.rerun()
 
+st.write(st.session_state.key)
 if "vote" not in st.session_state:
     st.write("Vote for your favorite")
     if st.button("A"):
