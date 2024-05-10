@@ -110,6 +110,7 @@ with tab3:
 
     "---"    
     name = st.text_input("",placeholder="een name...",key="name")
+    st.write(name)
     try:
         if name!="":
             res = drive.get(name).read()
