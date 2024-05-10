@@ -133,3 +133,4 @@ if "vote" not in st.session_state:
         vote("B")
 else:
     f"You voted for {st.session_state.vote['item']} because {st.session_state.vote['reason']}"
+    st.rerun()
