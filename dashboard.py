@@ -120,12 +120,6 @@ with tab3:
 @st.experimental_dialog("🪶",width="large")
 def vote_1():
     reason = st.text_input("Because...")
-    option = st.selectbox(
-       "How would you like to be contacted?",
-       ("Email", "Home phone", "Mobile phone"),
-       index=None,
-       placeholder="Select contact method...",
-    )
     uploaded_file = st.file_uploader("Choose a file")
     
     try:
@@ -142,7 +136,6 @@ def vote_1():
 
 @st.experimental_dialog("🦇",width="large")
 def vote_2():
-    reason = st.text_input("Because...")
     option = st.selectbox(
        "How would you like to be contacted?",
        ("Email", "Home phone", "Mobile phone"),
