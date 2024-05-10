@@ -98,18 +98,15 @@ with tab3:
     try:
         st.image(uploaded_file, caption='Sunrise by the mountains')
     
-    
-    submitted = st.button("Gegevens opslaan")
-    if submitted:
-        title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
-        bytes_data = uploaded_file.getvalue()
-        drive.put(f"{title}.jpeg", data=bytes_data)
+        submitted = st.button("Gegevens opslaan")
+        if submitted:
+            title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
+            bytes_data = uploaded_file.getvalue()
+            drive.put(f"{title}.jpeg", data=bytes_data)
+    except;
+        st.warning("upload a file")
 
-        
-        
-        
-       
-            
+    "---"    
     name = st.text_input("",placeholder="een name...",key="name")
     if name:
         res = drive.get(name).read()
