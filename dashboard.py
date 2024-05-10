@@ -120,18 +120,23 @@ with tab3:
 @st.experimental_dialog("Cast your vote")
 def vote():
     reason = st.text_input("Because...")
+    option = st.selectbox(
+       "How would you like to be contacted?",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Select contact method...",
+    )
     
     if st.button("Submit"):
-        st.session_state.vote = { "reason": reason}
+        st.session_state.vote = { "reason": reason,"option": option}
         st.rerun()
 
 # st.write(st.session_state.keys())
 if "vote" not in st.session_state:
     st.write("Vote for your favorite")
     if st.button("A"):
-        vote("A")
-    if st.button("B"):
-        vote("B")
+        vote()
+
 else:
-    f"You voted for {st.session_state.vote['item']} because {st.session_state.vote['reason']}"
+    f"You writed {st.session_state.vote['reason']}, and selected {st.session_state.vote['option']}"
 
