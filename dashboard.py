@@ -16,7 +16,7 @@ st.set_page_config(
 
 
 st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
+
 footer {visibility: hidden;}
 #GithubIcon {
   visibility: hidden;
