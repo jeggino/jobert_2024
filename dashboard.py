@@ -101,6 +101,8 @@ with tab3:
         submitted = st.button("Gegevens opslaan")
         if submitted:
             title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
+            st.write(title)
+
             if title!="":
                 
                 bytes_data = uploaded_file.getvalue()
@@ -110,7 +112,6 @@ with tab3:
 
     "---"    
     name = st.text_input("",placeholder="een name...",key="name")
-    st.write(name)
     try:
         if name!="":
             res = drive.get(name).read()
