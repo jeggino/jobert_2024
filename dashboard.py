@@ -102,17 +102,15 @@ with tab3:
         if submitted:          
             bytes_data = uploaded_file.getvalue()
             drive.put(uploaded_file.name, data=bytes_data)
-        st.write(drive.list())
 
     except:
         st.warning("upload a file")
 
     "---"    
-    name = st.text_input("",placeholder="een name...",key="name")
     try:
-        if name!="":
-            res = drive.get(f"{name}.jpg").read()
-            with st.expander("Zie foto"):
-                st.image(res)
+        for file in drive.list()["names"]:
+            res = drive.get(file).read()
+            st.image(res)
     except:
-        st.warning("No media")
+        st.warning("no files")
+        
