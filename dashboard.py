@@ -98,7 +98,7 @@ with tab3:
     if submitted:
        
         uploaded_file = st.file_uploader("Choose a file")
-        if uploaded_file is not None:
+        if uploaded_file != None:
             title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
             bytes_data = uploaded_file.getvalue()
             drive.put(f"{title}.jpeg", data=bytes_data)
