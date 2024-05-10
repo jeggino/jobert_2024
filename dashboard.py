@@ -126,14 +126,14 @@ def vote():
        index=None,
        placeholder="Select contact method...",
     )
-
     uploaded_file = st.file_uploader("Choose a file")
+    
     try:
         st.image(uploaded_file, caption='Sunrise by the mountains')
+        
     except:
         st.warning("upload a file")
         st.stop()
-    
     
     if st.button("Submit"):
         bytes_data = uploaded_file.getvalue()
@@ -142,5 +142,10 @@ def vote():
 
 
 st.write("Vote for your favorite")
-if st.button("AAA"):
+if st.button("Create an observation"):
     vote()
+
+try:
+    st.wtite(reason)
+except:
+    st.stop()
