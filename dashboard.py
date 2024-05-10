@@ -102,8 +102,6 @@ with tab3:
         if submitted:
             title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
             st.write(title)
-
-            if title:
                 
                 bytes_data = uploaded_file.getvalue()
                 drive.put(f"{title}.jpg", data=bytes_data)
