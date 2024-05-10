@@ -117,7 +117,7 @@ with tab3:
 
 
 
-@st.experimental_dialog("",width="large")
+@st.experimental_dialog("i",width="large")
 def vote():
     reason = st.text_input("Because...")
     option = st.selectbox(
