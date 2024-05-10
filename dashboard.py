@@ -95,7 +95,9 @@ with tab2:
 
 with tab3:
     uploaded_file = st.file_uploader("Choose a file")
-    st.image(uploaded_file, caption='Sunrise by the mountains')
+    try:
+        st.image(uploaded_file, caption='Sunrise by the mountains')
+    
     
     submitted = st.button("Gegevens opslaan")
     if submitted:
