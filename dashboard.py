@@ -117,8 +117,8 @@ with tab3:
 
 
 
-@st.experimental_dialog("i",width="large")
-def vote():
+@st.experimental_dialog("🪶",width="large")
+def vote_1():
     reason = st.text_input("Because...")
     option = st.selectbox(
        "How would you like to be contacted?",
@@ -138,15 +138,34 @@ def vote():
     if st.button("Submit"):
         bytes_data = uploaded_file.getvalue()
         drive.put(uploaded_file.name, data=bytes_data)
-        # st.rerun()
+        st.rerun()
+
+@st.experimental_dialog("🦇",width="large")
+def vote_2():
+    reason = st.text_input("Because...")
+    option = st.selectbox(
+       "How would you like to be contacted?",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Select contact method...",
+    )
+    uploaded_file = st.file_uploader("Choose a file")
+    
+    try:
+        st.image(uploaded_file, caption='Sunrise by the mountains')
+        
+    except:
+        st.warning("upload a file")
+        st.stop()
+    
+    if st.button("Submit"):
+        bytes_data = uploaded_file.getvalue()
+        drive.put(uploaded_file.name, data=bytes_data)
+        st.rerun()
         
 
+if st.button("Create an observation bird"):
+    vote_1()
 
-st.write("Vote for your favorite")
-if st.button("Create an observation"):
-    vote()
-
-try:
-    st.wtite(reason)
-except:
-    st.stop()
+if st.button("Create an observation bats"):
+    vote_2()
