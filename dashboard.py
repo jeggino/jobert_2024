@@ -120,14 +120,9 @@ with tab3:
 @st.experimental_dialog("Cast your vote")
 def vote():
     reason = st.text_input("Because...")
-    genre = st.radio(
-        "What's your favorite movie genre",
-        [":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],
-        index=None,
-    )
     
     if st.button("Submit"):
-        st.session_state.vote = {"genre": genre, "reason": reason}
+        st.session_state.vote = { "reason": reason}
         st.rerun()
 
 # st.write(st.session_state.keys())
