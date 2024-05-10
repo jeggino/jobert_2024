@@ -103,7 +103,7 @@ with tab3:
             title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
             bytes_data = uploaded_file.getvalue()
             drive.put(f"{title}.jpeg", data=bytes_data)
-    except;
+    except:
         st.warning("upload a file")
 
     "---"    
