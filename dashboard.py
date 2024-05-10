@@ -144,4 +144,5 @@ else:
         # Delete all the items in Session state
         for key in st.session_state.vote.keys():
             st.write(st.session_state.vote[key])
+        del st.session_state
 
