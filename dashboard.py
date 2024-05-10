@@ -131,12 +131,6 @@ if "vote" not in st.session_state:
         vote("A")
     if st.button("B"):
         vote("B")
-    # st.stop()
 else:
     f"You voted for {st.session_state.vote['item']} because {st.session_state.vote['reason']}"
-
-# # Delete all the items in Session state
-# if st.button("Insert a survey"):
-#     for key in st.session_state.keys():
-#         del st.session_state[key]
 
