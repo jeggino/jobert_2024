@@ -102,7 +102,7 @@ with tab3:
         if submitted:          
             bytes_data = uploaded_file.getvalue()
             drive.put(uploaded_file.name, data=bytes_data)
-        st.write(drive.fetch().items)
+        st.write(drive.fetch())
 
     except:
         st.warning("upload a file")
