@@ -128,20 +128,9 @@ def vote():
     )
     
     if st.button("Submit"):
-        st.session_state.vote = { "reason": reason,"option": option}
         st.rerun()
 
-# st.write(st.session_state.keys())
-if "vote" not in st.session_state:
-    st.write("Vote for your favorite")
-    if st.button("A"):
-        vote()
 
-else:
-    f"You writed {st.session_state.vote['reason']}, and selected {st.session_state.vote['option']}"
-    if st.button("select"):
-        st.write(t.session_state.vote.keys())
-        # Delete all the items in Session state
-        for key in st.session_state.vote.keys():
-            st.write(st.session_state.vote[key])
-
+st.write("Vote for your favorite")
+if st.button("A"):
+    vote()
