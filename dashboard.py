@@ -138,7 +138,8 @@ def vote():
     if st.button("Submit"):
         bytes_data = uploaded_file.getvalue()
         drive.put(uploaded_file.name, data=bytes_data)
-        st.rerun()
+        # st.rerun()
+        
 
 
 st.write("Vote for your favorite")
