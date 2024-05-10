@@ -106,7 +106,7 @@ with tab3:
             if title:
                 
                 bytes_data = uploaded_file.getvalue()
-                drive.put(f"{title}.jpeg", data=bytes_data)
+                drive.put(f"{title}.jpg", data=bytes_data)
     except:
         st.warning("upload a file")
 
