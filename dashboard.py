@@ -107,6 +107,7 @@ with tab3:
                 
                 bytes_data = uploaded_file.getvalue()
                 drive.put(f"{title}.jpeg", data=bytes_data)
+                st.stop()
     except:
         st.warning("upload a file")
 
