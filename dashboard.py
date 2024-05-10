@@ -101,15 +101,17 @@ with tab3:
         submitted = st.button("Gegevens opslaan")
         if submitted:
             title = st.text_input("",placeholder="een bestand uploaden...",key="title_1")
-            bytes_data = uploaded_file.getvalue()
-            drive.put(f"{title}.jpeg", data=bytes_data)
+            if title!="":
+                
+                bytes_data = uploaded_file.getvalue()
+                drive.put(f"{title}.jpeg", data=bytes_data)
     except:
         st.warning("upload a file")
 
     "---"    
     name = st.text_input("",placeholder="een name...",key="name")
     try:
-        if name:
+        if name!="":
             res = drive.get(name).read()
             with st.expander("Zie foto"):
                 st.image(res)
