@@ -52,7 +52,7 @@ OUTPUT_height = 910
 OUTPUT_width = 950
 CONTAINER_height = 640
 ICON_SIZE = (18,18)
-ZOOM = 4
+ZOOM = 10
 
 # --- FUNCTIONS ---
 def popup_html(row):
