@@ -62,7 +62,6 @@ if selected == '🗒️ Werkblad':
     
     st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2","Weersomstandigheden","rapport"], column_config=None)
     
-tab1, tab2, tab3 = st.tabs(["🗒️ Werkblad", "🗺️ Kaart", "📷 media"])
 
 
 elif selected == '🗺️ Kaart':
