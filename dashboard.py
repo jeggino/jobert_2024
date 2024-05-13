@@ -130,8 +130,13 @@ db_content_observations = pd.DataFrame(db_observations.fetch().items)
 db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 
 project = st.selectbox("Project", ["Zaandam","Badhoevedorp"],key="project")
-db_content_observations = db_content_observations[db_content_observations["project"]==project]
-db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
+
+try:
+    db_content_observations = db_content_observations[db_content_observations["project"]==project]
+    db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
+
+except:
+    st.warning("Nog geen waarnemingen")
 
 selected = option_menu(None, ['🗒️ Werkblad','🗺️ Kaart','📷 media'], 
                        icons=None,
