@@ -5,4 +5,5 @@ streamlit_js_eval
 altair
 streamlit>=1.32.0
 streamlit-folium>=0.8.1
+streamlit_option_menu
 geopandas
