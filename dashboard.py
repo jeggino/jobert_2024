@@ -48,11 +48,10 @@ ICON = {"Gierzwaluw":"https://cdn-icons-png.flaticon.com/128/732/732126.png",
         "Nest_unbezet": "icons/bat_box_empty.jpg",
         "Swift_nest": "icons/swift_nest.jpg"}
 
-OUTPUT_height = 910
+OUTPUT_height = 800
 OUTPUT_width = 950
-CONTAINER_height = 640
 ICON_SIZE = (18,18)
-ZOOM = 10
+ZOOM = 15
 
 # --- FUNCTIONS ---
 def popup_html(row):
