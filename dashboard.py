@@ -124,6 +124,8 @@ elif selected == '🗺️ Kaart':
                                               else (ICON["Bat"] if x["soortgroup"]=="Vleermuizen"  
                                                  else (ICON["Nest_bezet"] if x["onbewoond"]=="Ja" 
                                                        else ICON["Nest_unbezet"]))), axis=1)
+
+        df_2 
         
         
         map = folium.Map()
