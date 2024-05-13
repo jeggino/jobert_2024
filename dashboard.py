@@ -49,7 +49,7 @@ ICON = {"Gierzwaluw":"https://cdn-icons-png.flaticon.com/128/732/732126.png",
         "Swift_nest": "icons/swift_nest.jpg"}
 
 OUTPUT_height = 800
-OUTPUT_width = 950
+OUTPUT_width = 1150
 ICON_SIZE = (18,18)
 ZOOM = 20
 
