@@ -51,7 +51,7 @@ ICON = {"Gierzwaluw":"https://cdn-icons-png.flaticon.com/128/732/732126.png",
 OUTPUT_height = 800
 OUTPUT_width = 950
 ICON_SIZE = (18,18)
-ZOOM = 15
+ZOOM = 20
 
 # --- FUNCTIONS ---
 def popup_html(row):
@@ -194,7 +194,6 @@ elif selected == '🗺️ Kaart':
                                                  else (ICON["Nest_bezet"] if x["onbewoond"]=="Ja" 
                                                        else ICON["Nest_unbezet"]))), axis=1)
 
-        df_2 
         
         
         map = folium.Map(zoom_start = ZOOM,location=(df_2["lat"].mean(), df_2["lng"].mean()))
