@@ -48,6 +48,8 @@ ICON = {"Gierzwaluw":"https://cdn-icons-png.flaticon.com/128/732/732126.png",
         "Nest_unbezet": "icons/bat_box_empty.jpg",
         "Swift_nest": "icons/swift_nest.jpg"}
 
+ICON_SIZE = (18,18)
+
 
 # --- CONNECT TO DETA ---
 deta = Deta(st.secrets["deta_key"])
