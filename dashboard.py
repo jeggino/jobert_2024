@@ -198,7 +198,7 @@ elif selected == '🗺️ Kaart':
         df_2 
         
         
-        map = folium.Map(zoom_start = ZOOM)
+        map = folium.Map(zoom_start = ZOOM,location=(df_2["lat"].mean(), df_2["lng"].mean()))
         Fullscreen().add_to(map)
         
         fg_2 = folium.FeatureGroup(name="Huismussen")
