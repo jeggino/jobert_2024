@@ -48,6 +48,9 @@ ICON = {"Gierzwaluw":"https://cdn-icons-png.flaticon.com/128/732/732126.png",
         "Nest_unbezet": "icons/bat_box_empty.jpg",
         "Swift_nest": "icons/swift_nest.jpg"}
 
+OUTPUT_height = 610
+OUTPUT_width = 350
+CONTAINER_height = 640
 ICON_SIZE = (18,18)
 
 # --- FUNCTIONS ---
@@ -244,6 +247,8 @@ elif selected == '🗺️ Kaart':
             elif df_2.iloc[i]['geometry_type'] == "LineString":
     
                 folium.PolyLine(df_2.iloc[i]['coordinates']).add_to(fg)
+
+        st_folium(map,width=OUTPUT_width, height=OUTPUT_height,feature_group_to_add=[fg_2,fg_3,fg_4])
 
     except:
         st.warning("problems")
