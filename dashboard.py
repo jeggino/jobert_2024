@@ -70,7 +70,7 @@ elif selected == '🗺️ Kaart':
                 "Zwermen": "https://th.bing.com/th/id/R.fa1d67352a0b44b7a2ac3c07809b2777?rik=i%2bEbns2Dii9E0A&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_412341.png&ehk=z3kw3bKlhHt92TZ8t6XG6ufo6UoGTKO%2bBFTZC0cM1Cg%3d&risl=&pid=ImgRaw&r=0",}
     
     icon_data = {
-        "url": ICON_URL["Zwermen"]
+        "url": ICON_URL["Zwermen"],
         "width": 250,
         "height": 250,
         "anchorY": 125,
