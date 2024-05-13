@@ -49,7 +49,7 @@ ICON = {"Gierzwaluw":"https://cdn-icons-png.flaticon.com/128/732/732126.png",
         "Swift_nest": "icons/swift_nest.jpg"}
 
 OUTPUT_height = 800
-OUTPUT_width = 1150
+OUTPUT_width = 1050
 ICON_SIZE = (18,18)
 ZOOM = 20
 
@@ -146,45 +146,8 @@ if selected == '🗒️ Werkblad':
 
 
 elif selected == '🗺️ Kaart':
-    # ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
-    #             "forageren": "https://th.bing.com/th/id/OIP.xXDvwPQPQcgfpPEIkk2KEQHaHa?rs=1&pid=ImgDetMain",
-    #             "Zwermen": "https://th.bing.com/th/id/R.fa1d67352a0b44b7a2ac3c07809b2777?rik=i%2bEbns2Dii9E0A&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_412341.png&ehk=z3kw3bKlhHt92TZ8t6XG6ufo6UoGTKO%2bBFTZC0cM1Cg%3d&risl=&pid=ImgRaw&r=0",}
-    
-    # icon_data = {
-    #     "url": ICON_URL["Zwermen"],
-    #     "width": 250,
-    #     "height": 250,
-    #     "anchorY": 125,
-    # }
-    
-    # data = db_content_observations
-    # data["icon_data"] = None
-    # for i in data.index:
-    #     data["icon_data"][i] = icon_data
-        
-    # view = pdk.data_utils.compute_view(data[["lng", "lat"]])
-    
-    # icon_layer = pdk.Layer(
-    #     type="IconLayer",
-    #     data=data,
-    #     get_icon="icon_data",
-    #     get_size=2,
-    #     size_scale=15,
-    #     get_position=["lng", "lat"],
-    #     pickable=True,
-    # )
-    
-    # r = pdk.Deck(
-    #     icon_layer,
-    #     initial_view_state=view,
-    #     tooltip={"text": "{sp}"},
-    #     map_provider="mapbox",
-    #     map_style=pdk.map_styles.SATELLITE,
-    # )
-    
-    # st.pydeck_chart(r,use_container_width=True)
-    try:
 
+    try:
             
         df_2 = db_content_observations
         
@@ -208,9 +171,6 @@ elif selected == '🗺️ Kaart':
         folium.TileLayer(tiles="CartoDB Positron",overlay=False,show=False).add_to(map)
         folium.LayerControl().add_to(map)
        
-    
-        
-        
         for i in range(len(df_2)):
     
             if df_2.iloc[i]['geometry_type'] == "Point":
@@ -248,7 +208,7 @@ elif selected == '🗺️ Kaart':
                 folium.PolyLine(df_2.iloc[i]['coordinates']).add_to(fg)
 
         st_folium(map,
-                  # width=OUTPUT_width, height=OUTPUT_height,
+                  width=OUTPUT_width, height=OUTPUT_height,
                   feature_group_to_add=[fg_2,fg_3,fg_4])
 
     except:
