@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
+
 import pandas as pd
 
 from deta import Deta
@@ -50,17 +52,26 @@ project = st.selectbox("Project", ["Zaandam","Badhoevedorp"],key="project")
 db_content_observations = db_content_observations[db_content_observations["project"]==project]
 db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
 
+selected = option_menu(None, ['🗒️ Werkblad','🗺️ Kaart','📷 media'], 
+                       icons=None,
+                       default_index=0,
+                       orientation="horizontal",
+                       )
+
+if selected == '🗒️ Werkblad':
+    
+    st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2","Weersomstandigheden","rapport"], column_config=None)
+    
 tab1, tab2, tab3 = st.tabs(["🗒️ Werkblad", "🗺️ Kaart", "📷 media"])
 
-tab1.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2","Weersomstandigheden","rapport"], column_config=None)
 
-with tab2:
+elif selected == '🗺️ Kaart':
     ICON_URL = {"verblijplaatz":"https://cdn2.iconfinder.com/data/icons/map-and-navigation-line-filled-1/154/Home_house_location_Map_and_Navigation-512.png",
                 "forageren": "https://th.bing.com/th/id/OIP.xXDvwPQPQcgfpPEIkk2KEQHaHa?rs=1&pid=ImgDetMain",
                 "Zwermen": "https://th.bing.com/th/id/R.fa1d67352a0b44b7a2ac3c07809b2777?rik=i%2bEbns2Dii9E0A&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_412341.png&ehk=z3kw3bKlhHt92TZ8t6XG6ufo6UoGTKO%2bBFTZC0cM1Cg%3d&risl=&pid=ImgRaw&r=0",}
     
     icon_data = {
-        "url": ICON_URL["Zwermen"],
+        "url": ICON_URL["Zwermen"]
         "width": 250,
         "height": 250,
         "anchorY": 125,
@@ -93,24 +104,28 @@ with tab2:
     
     st.pydeck_chart(r,use_container_width=True)
 
-with tab3:
-    uploaded_file = st.file_uploader("Choose a file")
-    try:
-        st.image(uploaded_file, caption='Sunrise by the mountains')
+elif selected == '📷 media':
+
+    tab1, tab2 = st.tabs(["🎞️","📂"])
+
+    with tab1:
+        uploaded_file = st.file_uploader("Choose a file")
+        try:
+            st.image(uploaded_file, caption='Sunrise by the mountains')
+        
+            submitted = st.button("Gegevens opslaan")
+            if submitted:          
+                bytes_data = uploaded_file.getvalue()
+                drive.put(uploaded_file.name, data=bytes_data)
+                st.rerun()
     
-        submitted = st.button("Gegevens opslaan")
-        if submitted:          
-            bytes_data = uploaded_file.getvalue()
-            drive.put(uploaded_file.name, data=bytes_data)
-            st.rerun()
+        except:
+            st.warning("upload a file")
 
-    except:
-        st.warning("upload a file")
-
-    "---"    
-    try:
-        for file in drive.list()["names"]:
-            res = drive.get(file).read()
-            st.image(res)
-    except:
-        st.warning("no files")
+    with tab2:    
+        try:
+            for file in drive.list()["names"]:
+                res = drive.get(file).read()
+                st.image(res)
+        except:
+            st.warning("no files")
