@@ -8,7 +8,8 @@ from streamlit_folium import st_folium
 import pandas as pd
 
 from deta import Deta
-import pydeck as pdk
+import altair as alt
+
 
 
 # --- CONFIGURATION LAYOUT ---
@@ -145,10 +146,57 @@ selected = option_menu(None, ['🗒️ Werkblad','🗺️ Kaart','📷 media'],
                        )
 
 if selected == '🗒️ Werkblad':
+
+    tab1, tab2= st.tabs(["🗒️", "📈"])
     
-    st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, 
+    tab1.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, 
                  column_order=["Datum","Moment","Starttijd","Eindtijd","Laagste temperatuur","Weersomstandigheden","rapport"], 
                  column_config=None)
+
+    
+    df = db_content_surveys
+    
+    chart = alt.Chart(df).mark_point(size=30,
+        opacity=0.8,
+        stroke='black',
+        strokeWidth=1,
+        strokeOpacity=0.4
+    ).encode(
+        alt.X('Datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
+              scale=alt.Scale(domain=['2024','2025']))
+        ,
+        alt.Y('Moment:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
+        ,
+        tooltip=[
+            alt.Tooltip("Moment"),
+            alt.Tooltip("Datum:T"),
+            alt.Tooltip("Starttijd"),
+            alt.Tooltip("Eindtijd"),
+            alt.Tooltip("Laagste temperatuur"),
+            alt.Tooltip("Weersomstandigheden"),
+        ],
+    ).properties(
+        width=450,
+        height=300,
+        title=alt.Title(
+            text="",
+            subtitle="",
+            anchor='start'
+        )
+    )
+    
+
+    
+
+    
+    rule = alt.Chart(annotations_df).mark_rule(color="red").encode(
+        x="datum:T",
+        tooltip=["doel"],
+        color=alt.Color('doel:N').legend(None),
+        size=alt.value(2),
+    ).interactive()
+    
+    tab2.altair_chart(chart, theme=None, use_container_width=True)
     
 
 
