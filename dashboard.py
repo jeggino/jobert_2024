@@ -165,7 +165,7 @@ if selected == '🗒️ Werkblad':
         alt.X('Datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025']))
         ,
-        alt.Y('Moment:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
+        alt.Y('Moment:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="Moment",  order='ascending'),title=None)
         ,
         tooltip=[
             alt.Tooltip("Moment"),
