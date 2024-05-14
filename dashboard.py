@@ -134,11 +134,11 @@ db_content_observations
 db_content_surveys
 
 project = st.selectbox("Opdracht", ["Zaandam","Badhoevedorp"],key="project")
-st.write(project)
 try:
-    db_observations_filtered = db_content_observations[db_content_observations["Locatie"]==project]
     db_surveys_filtered = db_content_surveys[db_content_surveys["Locatie"]==project]
-
+    db_observations_filtered = db_content_observations[db_content_observations["Locatie"]==project]
+    
+    
 except:
     st.warning("Nog geen waarnemingen")
 
