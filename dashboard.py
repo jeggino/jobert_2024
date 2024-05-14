@@ -170,7 +170,7 @@ if selected == '🗒️ Werkblad':
         ,
         tooltip=[
             alt.Tooltip("Moment"),
-            alt.Tooltip("Datum"),
+            alt.Tooltip("Datum:T"),
             alt.Tooltip("Starttijd"),
             alt.Tooltip("Eindtijd"),
             alt.Tooltip("Laagste temperatuur"),
