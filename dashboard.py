@@ -146,7 +146,9 @@ selected = option_menu(None, ['🗒️ Werkblad','🗺️ Kaart','📷 media'],
 
 if selected == '🗒️ Werkblad':
     
-    st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, column_order=["datum","t_1","t_2","Weersomstandigheden","rapport"], column_config=None)
+    st.dataframe(data=db_content_surveys, use_container_width=True, hide_index=True, 
+                 column_order=["Datum","Moment","Starttijd","Eindtijd","Laagste temperatuur","Weersomstandigheden","rapport"], 
+                 column_config=None)
     
 
 
