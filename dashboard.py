@@ -133,8 +133,8 @@ db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 project = st.selectbox("Opdracht", ["Zaandam","Badhoevedorp"],key="project")
 
 try:
-    db_observations = db_content_observations[db_content_observations["Locatie"]==project]
-    db_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
+    db_observations_filtered = db_content_observations[db_content_observations["Locatie"]==project]
+    db_surveys_filtered = db_content_surveys[db_content_surveys["Locatie"]==project]
 
 except:
     st.warning("Nog geen waarnemingen")
@@ -149,12 +149,12 @@ if selected == '🗒️ Werkblad':
 
     tab1, tab2= st.tabs(["🗒️", "📈"])
     
-    tab1.dataframe(data=db_surveys, use_container_width=True, hide_index=True, 
+    tab1.dataframe(data=db_surveys_filtered, use_container_width=True, hide_index=True, 
                  column_order=["Datum","Moment","Starttijd","Eindtijd","Laagste temperatuur","Weersomstandigheden","rapport"], 
                  column_config=None)
 
     
-    df = db_surveys
+    df = db_surveys_filtered
     
     chart = alt.Chart(df).mark_point(size=30,
         opacity=0.8,
@@ -194,7 +194,7 @@ elif selected == '🗺️ Kaart':
 
     try:
             
-        df_2 = db_observations
+        df_2 = db_observations_filtered
         
         df_2["icon_data"] = df_2.apply(lambda x: ICON[x["sp"]] if ((x["soortgroup"]=="Vogels") & (x["functie"]!="nestlocatie")) 
                                        else (ICON["Swift_nest"] if ((x["soortgroup"]=="Vogels") & (x["functie"]=="nestlocatie"))
