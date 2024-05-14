@@ -129,7 +129,7 @@ drive = deta.Drive("df_pictures")
 db_content_observations = pd.DataFrame(db_observations.fetch().items)
 db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 
-project = st.selectbox("Project", ["Zaandam","Badhoevedorp"],key="project")
+project = st.selectbox("Opdracht", ["Zaandam","Badhoevedorp"],key="project")
 
 try:
     db_content_observations = db_content_observations[db_content_observations["project"]==project]
