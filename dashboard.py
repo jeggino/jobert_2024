@@ -138,7 +138,8 @@ try:
     db_observations_filtered = db_content_observations[db_content_observations["project"]==project]
     
 except:
-    st.warning("lkujrfhewl")
+    st.warning("Nog geen waarnemingen")
+    st.stop()
 
 
 selected = option_menu(None, ['🗒️ Werkblad','🗺️ Kaart','📷 media'], 
