@@ -138,6 +138,7 @@ try:
     
 except:
     st.warning("Nog geen waarnemingen")
+    st.stop()
 
 selected = option_menu(None, ['🗒️ Werkblad','🗺️ Kaart','📷 media'], 
                        icons=None,
