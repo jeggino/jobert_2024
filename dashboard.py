@@ -185,16 +185,6 @@ if selected == '🗒️ Werkblad':
         )
     )
     
-
-    
-
-    
-    rule = alt.Chart(annotations_df).mark_rule(color="red").encode(
-        x="datum:T",
-        tooltip=["doel"],
-        color=alt.Color('doel:N').legend(None),
-        size=alt.value(2),
-    ).interactive()
     
     tab2.altair_chart(chart, theme=None, use_container_width=True)
     
