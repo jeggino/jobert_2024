@@ -130,12 +130,12 @@ drive = deta.Drive("df_pictures")
 db_content_observations = pd.DataFrame(db_observations.fetch().items)
 db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 
-project = st.selectbox("Opdracht", ["Zaandam","Badhoevedorp"],key="project")
+project = st.selectbox("Opdracht", ["Zaandam","Badhoevedorp"], key="project")
 
 try:
     
     db_surveys_filtered = db_content_surveys[db_content_surveys["Locatie"]==project]
-    db_observations_filtered = db_content_observations[db_content_observations["Locatie"]==project]
+    db_observations_filtered = db_content_observations[db_content_observations["project"]==project]
     
 except:
     st.warning("lkujrfhewl")
