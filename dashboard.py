@@ -156,10 +156,8 @@ if selected == '🗒️ Werkblad':
                  column_order=["Datum","Moment","Starttijd","Eindtijd","Laagste temperatuur","Weersomstandigheden","rapport"], 
                  column_config=None)
 
-    
-    df = db_surveys_filtered
-    
-    chart = alt.Chart(df).mark_point(size=30,
+        
+    chart = alt.Chart(db_surveys_filtered).mark_point(size=30,
         opacity=0.8,
         stroke='black',
         strokeWidth=1,
@@ -172,7 +170,7 @@ if selected == '🗒️ Werkblad':
         ,
         tooltip=[
             alt.Tooltip("Moment"),
-            alt.Tooltip("Datum:T"),
+            alt.Tooltip("Datum"),
             alt.Tooltip("Starttijd"),
             alt.Tooltip("Eindtijd"),
             alt.Tooltip("Laagste temperatuur"),
