@@ -133,7 +133,7 @@ db_content_surveys = pd.DataFrame(db_survey.fetch().items)
 project = st.selectbox("Opdracht", ["Zaandam","Badhoevedorp"],key="project")
 
 try:
-    db_content_observations = db_content_observations[db_content_observations["project"]==project]
+    db_content_observations = db_content_observations[db_content_observations["Locatie"]==project]
     db_content_surveys = db_content_surveys[db_content_surveys["Locatie"]==project]
 
 except:
