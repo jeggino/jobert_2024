@@ -34,10 +34,10 @@ def insert_input(datum,moment,t_1,t_2,locatie,temp,weersomstandigheden,rapport):
         
 # --- APP ---
 datum = st.date_input("Datum", datetime.datetime.today())
-moment = st.selectbox('Moment',MOMENT,key='MOMENT',placeholder="Kies een moment...")
+moment = st.selectbox('Moment',MOMENT,key='MOMENT',placeholder="Kies een moment...",index=None)
 t_1 = st.time_input("Begintijd invoegen", value=None,key="t_1")
 t_2 = st.time_input("Eindtijd invoegen", value=None,key="t_2")
-locatie = st.selectbox('Locatie',LOCATIE,key='LOCATIE',placeholder="Kies een locatie...")
+locatie = st.selectbox('Locatie',LOCATIE,key='LOCATIE',placeholder="Kies een locatie...",index=None)
 weersomstandigheden = st.selectbox('Weersomstandigheden',Weersomstandigheden,key='Weersomstandigheden',placeholder="Vul de weeromstandigheden in...",index=None)
 temp = st.number_input("Temperatuur", value=None, placeholder="Voer de temperatuur in...")
 rapport = st.text_input("Voeg een dagrapport toe", "")
