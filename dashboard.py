@@ -149,6 +149,7 @@ drive = deta.Drive("df_pictures")
 
 db_content_observations = pd.DataFrame(db_observations.fetch().items)
 db_content_surveys = pd.DataFrame(db_survey.fetch().items)
+db_content_infopictures = pd.DataFrame(db_infopictures.fetch().items)
 
 project = st.selectbox("Opdracht", ["Zaandam","Badhoevedorp"], key="project")
 
@@ -308,5 +309,6 @@ elif selected == '📷 media':
             for file in drive.list()["names"]:
                 res = drive.get(file).read()
                 st.image(res,caption=file)
+                st.write(db_content_infopictures[db_content_infopictures["pict_name"]==file]["info"])
         except:
             st.warning("no files")
