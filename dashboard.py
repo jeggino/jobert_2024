@@ -304,7 +304,7 @@ elif selected == '📷 media':
         
         uploaded_file = st.file_uploader("Een afbeelding uploaded",label_visibility="hidden")
         if uploaded_file:
-            with st.container(border=True)
+            with st.container(border=True):
                 info = st.text_input("Schrijf wat informatie over de foto...",value=None)
                 st.image(uploaded_file)
                     
