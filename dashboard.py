@@ -318,10 +318,10 @@ elif selected == '📷 media':
                 st.image(uploaded_file)
                 info = st.text_input("Schrijf wat informatie over de foto...", "")
             
-            # Every form must have a submit button.
-            submitted = st.form_submit_button("Gegevens opslaan")
-            if submitted:
-                pict_name = password_generator()
-                bytes_data = uploaded_file.getvalue()
-                drive.put(f"{pict_name}", data=bytes_data)
-                insert_info(pict_name,info)
+                # Every form must have a submit button.
+                submitted = st.form_submit_button("Gegevens opslaan")
+                if submitted:
+                    pict_name = password_generator()
+                    bytes_data = uploaded_file.getvalue()
+                    drive.put(f"{pict_name}", data=bytes_data)
+                    insert_info(pict_name,info)
