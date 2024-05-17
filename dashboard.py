@@ -288,39 +288,28 @@ elif selected == '📷 media':
 
     with tab1:    
         try:
+            db_content_infopictures_filtered = db_content_infopictures[db_content_infopictures["project"]==project]
+            st.write(drive.list()["names"])
+            list_names = db_content_infopictures_filtered["pict_name"].to_list()
             for file in drive.list()["names"]:
-                res = drive.get(file).read()
-                st.image(res)
-                st.write(db_content_infopictures.loc[db_content_infopictures["pict_name"]==file,"info"].iloc[0])
+                if file in list_names:
+                    res = drive.get(file).read()
+                    st.image(res)
+                    st.write(db_content_infopictures_filtered.loc[db_content_infopictures_filtered["pict_name"]==file,"info"].iloc[0])
                 "---"
         except:
             st.warning("Nog geen foto's")
 
     with tab2:
         
-        # with st.form("my_form",clear_on_submit=True):
-        #     uploaded_file = st.file_uploader("Een afbeelding uploaded",label_visibility="hidden")
-        #     try:
-        #         st.image(uploaded_file)
-        #         info = st.text_input("Schrijf wat informatie over de foto...", "")
-            
-        #         submitted = st.form_submit_button("Gegevens opslaan")
-                # if submitted:
-                #     pict_name = password_generator()
-                #     bytes_data = uploaded_file.getvalue()
-                #     drive.put(f"{pict_name}", data=bytes_data)
-                #     insert_info(pict_name,info)
-        #     except:
-        #         st.stop()
         uploaded_file = st.file_uploader("Een afbeelding uploaded",label_visibility="hidden")
         if uploaded_file:
-            with st.form("my_form",clear_on_submit=True):
+            with st.container(border=True)
                 info = st.text_input("Schrijf wat informatie over de foto...",value=None)
                 st.image(uploaded_file)
                     
-                
                 # Every form must have a submit button.
-                submitted = st.form_submit_button("Gegevens opslaan")
+                submitted = st.button("Gegevens opslaan")
                 if submitted:
                     if info==None:
                         st.warning("Provide  infos")
