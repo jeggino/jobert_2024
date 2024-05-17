@@ -295,7 +295,7 @@ elif selected == '📷 media':
             if submitted:
                 pict_name = password_generator()
                 bytes_data = uploaded_file.getvalue()
-                drive.put(pict_name, data=bytes_data)
+                drive.put(f"{pict_name}.jpeg", data=bytes_data)
                 insert_info(pict_name,info)
                 
                 st.rerun()
@@ -307,6 +307,6 @@ elif selected == '📷 media':
         try:
             for file in drive.list()["names"]:
                 res = drive.get(file).read()
-                st.image(res)
+                st.image(res,caption=file)
         except:
             st.warning("no files")
