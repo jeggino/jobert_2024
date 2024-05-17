@@ -70,9 +70,9 @@ def password_generator():
         
     return password
 
-def insert_info(pict_name,info):
+def insert_info(pict_name,info,project):
 
-  return db_infopictures.put({"pict_name":pict_name,"info":info})
+  return db_infopictures.put({"pict_name":pict_name,"info":info,"project":project})
     
 def popup_html(row):
     
@@ -315,8 +315,7 @@ elif selected == '📷 media':
         with st.form("my_form",clear_on_submit=True):
             uploaded_file = st.file_uploader("Een afbeelding uploaded",label_visibility="hidden")
             info = st.text_input("Schrijf wat informatie over de foto...", "")
-            if uploaded_file:
-                st.image(uploaded_file)
+            st.image(uploaded_file)
                 
             
             # Every form must have a submit button.
@@ -328,4 +327,5 @@ elif selected == '📷 media':
                 pict_name = password_generator()
                 bytes_data = uploaded_file.getvalue()
                 drive.put(f"{pict_name}", data=bytes_data)
-                insert_info(pict_name,info)
+                insert_info(pict_name,info,project)
+                st.rerun()
