@@ -6,9 +6,12 @@ from folium.plugins import Fullscreen, LocateControl
 from streamlit_folium import st_folium
 
 import pandas as pd
+import random
+import altair as alt
 
 from deta import Deta
-import altair as alt
+
+
 
 
 
@@ -55,6 +58,22 @@ ICON_SIZE = (18,18)
 ZOOM = 20
 
 # --- FUNCTIONS ---
+def password_generator():
+    password_length = 12
+
+    characters = "abcde12345"
+
+    password = ""   
+
+    for index in range(password_length):
+        password = password + random.choice(characters)
+        
+    return password
+
+def insert_info(pict_name,info):
+
+  return db_infopictures.put({"pict_name":pict_name,"info":info})
+    
 def popup_html(row):
     
     i = row
@@ -125,6 +144,7 @@ def popup_html(row):
 deta = Deta(st.secrets["deta_key"])
 db_observations = deta.Base("df_observations")
 db_survey = deta.Base("df_survey")
+db_infopictures = deta.Base("df_infopictures")
 drive = deta.Drive("df_pictures")
 
 db_content_observations = pd.DataFrame(db_observations.fetch().items)
@@ -266,14 +286,18 @@ elif selected == '📷 media':
     tab1, tab2 = st.tabs(["🎞️","📂"])
 
     with tab1:
-        uploaded_file = st.file_uploader("Choose a file")
+        uploaded_file = st.file_uploader("Een afbeelding uploaden")
         try:
-            st.image(uploaded_file, caption='Sunrise by the mountains')
+            st.image(uploaded_file)
+            info = st.text_input("Schrijf wat informatie over de foto...", "")
         
             submitted = st.button("Gegevens opslaan")
-            if submitted:          
+            if submitted:
+                pict_name = password_generator()
                 bytes_data = uploaded_file.getvalue()
-                drive.put(uploaded_file.name, data=bytes_data)
+                drive.put(pict_name, data=bytes_data)
+                insert_info(pict_name,info)
+                
                 st.rerun()
     
         except:
