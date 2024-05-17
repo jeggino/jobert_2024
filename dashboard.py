@@ -308,7 +308,7 @@ elif selected == '📷 media':
         try:
             for file in drive.list()["names"]:
                 res = drive.get(file).read()
-                st.image(res,caption=file)
-                st.write(db_content_infopictures.loc[db_content_infopictures["pict_name"]=="file Eagle","info"].iloc[0])
+                st.image(res)
+                st.write(db_content_infopictures.loc[db_content_infopictures["pict_name"]==file,"info"].iloc[0])
         except:
             st.warning("no files")
