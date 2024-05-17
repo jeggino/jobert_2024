@@ -304,7 +304,7 @@ elif selected == '📷 media':
                 st.image(uploaded_file)
                 info = st.text_input("Schrijf wat informatie over de foto...", "")
             
-                submitted = st.button("Gegevens opslaan")
+                submitted = st.form_submit_button("Gegevens opslaan")
                 if submitted:
                     pict_name = password_generator()
                     bytes_data = uploaded_file.getvalue()
