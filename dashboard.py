@@ -286,8 +286,18 @@ elif selected == '📷 media':
 
     tab1, tab2 = st.tabs(["🎞️","📂"])
 
-    with tab1:
-        uploaded_file = st.file_uploader("Een afbeelding uploaden")
+    with tab1:    
+        try:
+            for file in drive.list()["names"]:
+                res = drive.get(file).read()
+                st.image(res)
+                st.write(db_content_infopictures.loc[db_content_infopictures["pict_name"]==file,"info"].iloc[0])
+                "---"
+        except:
+            st.warning("Nog geen foto's")
+
+    with tab2:
+        uploaded_file = st.file_uploader("Een afbeelding uploaded",label_visibility="hidden")
         try:
             st.image(uploaded_file)
             info = st.text_input("Schrijf wat informatie over de foto...", "")
@@ -304,12 +314,4 @@ elif selected == '📷 media':
         except:
             st.stop()
 
-    with tab2:    
-        try:
-            for file in drive.list()["names"]:
-                res = drive.get(file).read()
-                st.image(res)
-                st.write(db_content_infopictures.loc[db_content_infopictures["pict_name"]==file,"info"].iloc[0])
-                "---"
-        except:
-            st.warning("no files")
+    
