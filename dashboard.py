@@ -312,7 +312,7 @@ elif selected == '📷 media':
         #             insert_info(pict_name,info)
         #     except:
         #         st.stop()
-        with st.form("my_form"):
+        with st.form("my_form",clear_on_submit=True):
             st.write("Inside the form")
             slider_val = st.slider("Form slider")
             checkbox_val = st.checkbox("Form checkbox")
