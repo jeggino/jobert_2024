@@ -319,5 +319,5 @@ elif selected == '📷 media':
             
             # Every form must have a submit button.
             submitted = st.form_submit_button("Submit")
-                if submitted:
-                    st.write("slider", slider_val, "checkbox", checkbox_val)
+            if submitted:
+                st.write("slider", slider_val, "checkbox", checkbox_val)
