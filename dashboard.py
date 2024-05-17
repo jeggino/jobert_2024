@@ -289,7 +289,6 @@ elif selected == '📷 media':
     with tab1:    
         try:
             db_content_infopictures_filtered = db_content_infopictures[db_content_infopictures["project"]==project]
-            st.write(drive.list()["names"])
             list_names = db_content_infopictures_filtered["pict_name"].to_list()
             for file in drive.list()["names"]:
                 if file in list_names:
