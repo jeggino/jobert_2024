@@ -293,7 +293,10 @@ elif selected == '📷 media':
             for file in drive.list()["names"]:
                 if file in list_names:
                     res = drive.get(file).read()
-                    st.image(res)
+                    try:
+                        st.image(res)
+                    except:
+                        st.video(res)
                     st.write(db_content_infopictures_filtered.loc[db_content_infopictures_filtered["pict_name"]==file,"info"].iloc[0])
                 "---"
         except:
