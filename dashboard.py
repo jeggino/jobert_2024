@@ -308,7 +308,10 @@ elif selected == '📷 media':
         if uploaded_file:
             with st.container(border=True):
                 info = st.text_input("Schrijf wat informatie over de foto...",value=None,placeholder="Schrijf wat informatie over de foto...", label_visibility="hidden")
-                st.image(uploaded_file)
+                try:
+                    st.image(uploaded_file)
+                except:
+                    st.video(uploaded_file)
                     
                 # Every form must have a submit button.
                 submitted = st.button("Gegevens opslaan")
