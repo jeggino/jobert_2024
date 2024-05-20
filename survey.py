@@ -21,15 +21,15 @@ db = deta.Base("df_survey")
 
 LOCATIE = ["Zaandam","Badhoevedorp"]
 MOMENT = ["Avond","Ochtend","Nacht"]
-Weersomstandigheden = ['Zonnig', 'Bewolkt', 'Lichte regen']
+Weersomstandigheden = ['Zonnig', 'Lichte bewolkt', 'Bewolkt', 'Lichte regen']
 
 # --- FUNCTIONS ---
 def load_dataset():
   return db.fetch().items
 
-def insert_input(datum,moment,t_1,t_2,locatie,temp,weersomstandigheden,rapport):
+def insert_input(datum,moment,t_1,t_2,locatie,temp,wind,weersomstandigheden,rapport):
 
-  return db.put({"Datum":str(datum),"Moment":moment,"Starttijd":str(t_1),"Eindtijd":str(t_2),"Locatie":locatie,"Laagste temperatuur":temp,"Weersomstandigheden":weersomstandigheden,"rapport":rapport})
+  return db.put({"Datum":str(datum),"Moment":moment,"Starttijd":str(t_1),"Eindtijd":str(t_2),"Locatie":locatie,"Laagste temperatuur":temp,"Windsnelheid":wind,"Weersomstandigheden":weersomstandigheden,"rapport":rapport})
 
         
 # --- APP ---
@@ -39,7 +39,8 @@ t_1 = st.time_input("Begintijd invoegen", value=None,key="t_1")
 t_2 = st.time_input("Eindtijd invoegen", value=None,key="t_2")
 locatie = st.selectbox('Locatie',LOCATIE,key='LOCATIE',placeholder="Kies een locatie...",index=None)
 weersomstandigheden = st.selectbox('Weersomstandigheden',Weersomstandigheden,key='Weersomstandigheden',placeholder="Vul de weeromstandigheden in...",index=None)
-temp = st.number_input("Temperatuur", value=None, placeholder="Voer de temperatuur in...")
+temp = st.number_input("Temperatuur", value=None, placeholder="Voer de temperatuur in...",key="temperatuur")
+wind = st.number_input("Wind", value=1, placeholder="Vul de windsnelheid...",key="Wind")
 rapport = st.text_input("Voeg een dagrapport toe", "")
 
 
@@ -51,5 +52,5 @@ if submitted:
         st.warning("Vul het formulier in, alstublieft")
         st.stop()
 
-    insert_input(datum,moment,t_1,t_2,locatie,temp,weersomstandigheden,rapport)
+    insert_input(datum,moment,t_1,t_2,locatie,temp,wind,weersomstandigheden,rapport)
     st.write(f"Done!")
