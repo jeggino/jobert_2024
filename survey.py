@@ -21,7 +21,7 @@ db = deta.Base("df_survey")
 
 LOCATIE = ["Zaandam","Badhoevedorp"]
 MOMENT = ["Avond","Ochtend","Nacht"]
-Weersomstandigheden = ['Zonnig', 'Lichte bewolkt', 'Bewolkt', 'Lichte regen']
+Weersomstandigheden = ['Heldere lucht', 'Lichte bewolkt', 'Bewolkt', 'Lichte regen']
 
 # --- FUNCTIONS ---
 def load_dataset():
