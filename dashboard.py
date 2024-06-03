@@ -181,7 +181,7 @@ if selected == '🗒️ Werkblad':
     chart = alt.Chart(db_surveys_filtered).mark_point(size=30,
         opacity=0.8,
         # stroke='black',
-        # strokeWidth=1,
+        strokeWidth=1,
         # strokeOpacity=0.4
     ).encode(
         alt.X('Datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
@@ -201,7 +201,7 @@ if selected == '🗒️ Werkblad':
         ],
     ).properties(
         width=450,
-        height=300,
+        height=100,
         title=alt.Title(
             text="",
             subtitle="",
@@ -210,7 +210,7 @@ if selected == '🗒️ Werkblad':
     )
     
     
-    tab2.altair_chart(chart, theme="streamlit", use_container_width=True)
+    tab2.altair_chart(chart, theme=None, use_container_width=True)
     
 
 
