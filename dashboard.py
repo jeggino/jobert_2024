@@ -210,7 +210,7 @@ if selected == '🗒️ Werkblad':
     )
     
     
-    tab2.altair_chart(chart, theme=None, use_container_width=True)
+    tab2.altair_chart(chart, theme="streamlit", use_container_width=True)
     
 
 
