@@ -180,9 +180,9 @@ if selected == '🗒️ Werkblad':
         
     chart = alt.Chart(db_surveys_filtered).mark_point(size=30,
         opacity=0.8,
-        stroke='black',
-        strokeWidth=1,
-        strokeOpacity=0.4
+        # stroke='black',
+        # strokeWidth=1,
+        # strokeOpacity=0.4
     ).encode(
         alt.X('Datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025']))
