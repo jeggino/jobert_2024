@@ -189,9 +189,10 @@ if selected == '🗒️ Werkblad':
         ,
         alt.Y('Moment:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="Moment",  order='ascending'),title=None)
         ,
-        color="kant",
+        color="kant:N",
         tooltip=[
             alt.Tooltip("Moment"),
+            alt.Tooltip("kant"),
             alt.Tooltip("Datum:T"),
             alt.Tooltip("Starttijd"),
             alt.Tooltip("Eindtijd"),
