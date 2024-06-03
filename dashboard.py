@@ -174,7 +174,7 @@ if selected == '🗒️ Werkblad':
     tab1, tab2= st.tabs(["🗒️", "📈"])
     
     tab1.dataframe(data=db_surveys_filtered, use_container_width=True, hide_index=True, 
-                 column_order=["Datum","Moment","Starttijd","Eindtijd","Laagste temperatuur","Weersomstandigheden","rapport"], 
+                 column_order=["Datum","Moment","kant","Starttijd","Eindtijd","Laagste temperatuur","Weersomstandigheden","rapport"], 
                  column_config=None)
 
         
@@ -189,6 +189,7 @@ if selected == '🗒️ Werkblad':
         ,
         alt.Y('Moment:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="Moment",  order='ascending'),title=None)
         ,
+        color="kant",
         tooltip=[
             alt.Tooltip("Moment"),
             alt.Tooltip("Datum:T"),
