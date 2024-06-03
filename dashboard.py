@@ -300,6 +300,7 @@ elif selected == '📷 media':
                     except:
                         st.video(res)
                     st.write(db_content_infopictures_filtered.loc[db_content_infopictures_filtered["pict_name"]==file,"info"].iloc[0])
+                    st.download_button("Download binary file", res)
                 "---"
         except:
             st.warning("Nog geen foto's")
