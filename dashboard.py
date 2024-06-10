@@ -282,11 +282,12 @@ elif selected == '🗺️ Kaart':
             elif df_2.iloc[i]['geometry_type'] == "LineString":
     
                 folium.PolyLine(df_2.iloc[i]['coordinates']).add_to(fg)
-                
-        with col2:
-            st_folium(map,
-                      width=OUTPUT_width, height=OUTPUT_height,
-                      feature_group_to_add=[fg_2,fg_3,fg_4])
+
+        with st.container(border=True):
+            with col2:
+                st_folium(map,
+                          width=OUTPUT_width, height=OUTPUT_height,
+                          feature_group_to_add=[fg_2,fg_3,fg_4])
 
     except:
         st.warning("Geen waarnemingen")
