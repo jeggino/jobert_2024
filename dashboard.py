@@ -218,10 +218,12 @@ elif selected == '🗺️ Kaart':
 
     try:
 
-        
-        datum = st.multiselect("datum",db_observations_filtered.datum.unique(),key="datum")
-        functie = st.multiselect("functie",db_observations_filtered.functie.unique(),key="functie")
-        sp = st.multiselect("sp",db_observations_filtered.sp.unique(),key="sp")
+        col1, col2 = st.columns([1,4])
+
+        with col1:
+            datum = st.multiselect("Datum",db_observations_filtered.datum.unique(),key="datum")
+            functie = st.multiselect("Functie",db_observations_filtered.functie.unique(),key="functie")
+            sp = st.multiselect("Soort",db_observations_filtered.sp.unique(),key="sp")
             
         df_2 = db_observations_filtered[db_observations_filtered.datum.isin(datum) & db_observations_filtered.functie.isin(functie) & db_observations_filtered.sp.isin(sp)]
         
@@ -280,10 +282,11 @@ elif selected == '🗺️ Kaart':
             elif df_2.iloc[i]['geometry_type'] == "LineString":
     
                 folium.PolyLine(df_2.iloc[i]['coordinates']).add_to(fg)
-
-        st_folium(map,
-                  width=OUTPUT_width, height=OUTPUT_height,
-                  feature_group_to_add=[fg_2,fg_3,fg_4])
+                
+        with col2:
+            st_folium(map,
+                      width=OUTPUT_width, height=OUTPUT_height,
+                      feature_group_to_add=[fg_2,fg_3,fg_4])
 
     except:
         st.warning("Nog geen waarnemingen")
