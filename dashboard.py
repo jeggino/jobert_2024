@@ -217,8 +217,13 @@ if selected == '🗒️ Werkblad':
 elif selected == '🗺️ Kaart':
 
     try:
+
+        
+        datum = st.multiselect("datum",db_observations_filtered.datum.unique(),key="datum")
+        functie = st.multiselect("functie",db_observations_filtered.functie.unique(),key="functie")
+        sp = st.multiselect("sp",db_observations_filtered.sp.unique(),key="sp")
             
-        df_2 = db_observations_filtered
+        df_2 = db_observations_filtered[db_observations_filtered.datum.isin(datum) & db_observations_filtered.functie.isin(functie) & db_observations_filtered.sp.isin(sp)]
         
         df_2["icon_data"] = df_2.apply(lambda x: ICON[x["sp"]] if ((x["soortgroup"]=="Vogels") & (x["functie"]!="nestlocatie")) 
                                        else (ICON["Swift_nest"] if ((x["soortgroup"]=="Vogels") & (x["functie"]=="nestlocatie"))
