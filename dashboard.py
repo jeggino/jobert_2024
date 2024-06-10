@@ -289,7 +289,7 @@ elif selected == '🗺️ Kaart':
                       feature_group_to_add=[fg_2,fg_3,fg_4])
 
     except:
-        st.warning("Nog geen waarnemingen")
+        st.warning("Geen waarnemingen")
 
 
 elif selected == '📷 media':
