@@ -138,17 +138,15 @@ def popup_html(row):
     </html>
     """
     return html
-#Try
-from datetime import datetime
 
-# datetime object containing current date and time
-now = datetime.now()
- 
-st.write("now =", now)
+from datetime import datetime, timedelta
 
-# dd/mm/YY H:M:S
-dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-st.write("date and time =", dt_string)
+
+
+from datetime import datetime, timedelta
+
+nine_hours_from_now = datetime.now() + timedelta(hours=9)
+st.write(format(nine_hours_from_now, '%H:%M:%S'))
 ###
 
 # --- CONNECT TO DETA ---
