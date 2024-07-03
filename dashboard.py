@@ -139,15 +139,6 @@ def popup_html(row):
     """
     return html
 
-from datetime import datetime, timedelta
-
-
-
-from datetime import datetime, timedelta
-
-nine_hours_from_now = datetime.now() + timedelta(hours=2)
-st.write(format(nine_hours_from_now, '%H:%M:%S'))
-###
 
 # --- CONNECT TO DETA ---
 deta = Deta(st.secrets["deta_key"])
