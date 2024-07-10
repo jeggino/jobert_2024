@@ -79,6 +79,7 @@ def popup_html(row):
     i = row
      
     datum=df_2['datum'].iloc[i] 
+    time=df_2['time'].iloc[i] 
     soortgroup=df_2['soortgroup'].iloc[i]
     sp = df_2['sp'].iloc[i] 
     functie=df_2['functie'].iloc[i]
